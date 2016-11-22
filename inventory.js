@@ -16,6 +16,14 @@ var addItem = function(color, name, size) {
     console.log('currentInventory:', inventory);
 }; // end addItem
 
+var addUserItem = function() {
+  // Adds an item to the inventory array from user's inputs
+  var newName = document.getElementById("nameInNew").value;
+  var newColor = document.getElementById("colorInNew").value;
+  var newSize = document.getElementById("sizeInNew").value;
+  addItem(newColor, newName, newSize);
+};
+
 var searchInventory = function() {
     console.log('in searchInventory');
     // get size from user
@@ -41,6 +49,7 @@ var searchInventory = function() {
 var showSearchResults = function() {
   var results = searchInventory();
   var resultsList = document.getElementById('resultsList');
+  // If there are results in the list
   if(results.length > 0) {
     var htmlString = "";
     // Create a list item for each item in the results
@@ -50,6 +59,7 @@ var showSearchResults = function() {
     // Add the entire list onto the DOM
     resultsList.innerHTML = htmlString;
   } else {
+    // No results found
     resultsList.innerHTML = "Found no matches";
   }
 };
