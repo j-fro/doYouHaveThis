@@ -46,8 +46,23 @@ var searchInventory = function() {
     return results;
 }; // end searchInventory
 
+var searchInventoryByName = function() {
+  // Searches the inventory for objects that match by name only
+  var results = [];
+  var name = document.getElementById("nameIn").value;
+  for (var i = 0; i < inventory.length; i++) {
+    if (inventory[i].name === name) {
+      results.push(inventory[i]);
+    }
+  }
+  return results;
+};
+
 var showSearchResults = function() {
-  var results = searchInventory();
+  var results = searchInventoryByName();
+  if (results.length === 0) {
+    results = searchInventory();
+  }
   var resultsList = document.getElementById('resultsList');
   // If there are results in the list
   if(results.length > 0) {
