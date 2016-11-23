@@ -13,17 +13,18 @@ var addItem = function(color, name, size) {
     // push into array
     inventory.push(newItem);
     // Give the user confirmation
-    alert("Successfully added a " + size + " " + color + " " + name);
+
     // show updated inventory
     console.log('currentInventory:', inventory);
 }; // end addItem
 
 var addUserItem = function() {
-  // Adds an item to the inventory array from user's inputs
-  var newName = document.getElementById("nameInNew").value;
-  var newColor = document.getElementById("colorInNew").value;
-  var newSize = document.getElementById("sizeInNew").value;
-  addItem(newColor, newName, newSize);
+    // Adds an item to the inventory array from user's inputs
+    var newName = document.getElementById("nameInNew").value;
+    var newColor = document.getElementById("colorInNew").value;
+    var newSize = document.getElementById("sizeInNew").value;
+    addItem(newColor, newName, newSize);
+    alert("Successfully added a " + newSize + " " + newColor + " " + newName);
 };
 
 var searchInventory = function() {
@@ -49,36 +50,36 @@ var searchInventory = function() {
 }; // end searchInventory
 
 var searchInventoryByName = function() {
-  // Searches the inventory for objects that match by name only
-  var results = [];
-  var name = document.getElementById("nameIn").value;
-  for (var i = 0; i < inventory.length; i++) {
-    if (inventory[i].name.toLowerCase() === name.toLowerCase()) {
-      results.push(inventory[i]);
+    // Searches the inventory for objects that match by name only
+    var results = [];
+    var name = document.getElementById("nameIn").value;
+    for (var i = 0; i < inventory.length; i++) {
+        if (inventory[i].name.toLowerCase() === name.toLowerCase()) {
+            results.push(inventory[i]);
+        }
     }
-  }
-  return results;
+    return results;
 };
 
 var showSearchResults = function() {
-  var results = searchInventoryByName();
-  if (results.length === 0) {
-    results = searchInventory();
-  }
-  var resultsList = document.getElementById('resultsList');
-  // If there are results in the list
-  if(results.length > 0) {
-    var htmlString = "";
-    // Create a list item for each item in the results
-    for (var i = 0; i < results.length; i++) {
-      htmlString += "<li>" + results[i].name + "</li>";
+    var results = searchInventoryByName();
+    if (results.length === 0) {
+        results = searchInventory();
     }
-    // Add the entire list onto the DOM
-    resultsList.innerHTML = htmlString;
-  } else {
-    // No results found
-    resultsList.innerHTML = "Found no matches";
-  }
+    var resultsList = document.getElementById('resultsList');
+    // If there are results in the list
+    if (results.length > 0) {
+        var htmlString = "";
+        // Create a list item for each item in the results
+        for (var i = 0; i < results.length; i++) {
+            htmlString += "<li>" + results[i].name + "</li>";
+        }
+        // Add the entire list onto the DOM
+        resultsList.innerHTML = htmlString;
+    } else {
+        // No results found
+        resultsList.innerHTML = "Found no matches";
+    }
 };
 
 ///////// ADD ITEMS /////////
