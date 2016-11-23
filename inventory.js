@@ -12,6 +12,8 @@ var addItem = function(color, name, size) {
     }; // end newItem
     // push into array
     inventory.push(newItem);
+    // Give the user confirmation
+    alert("Successfully added a " + size + " " + color + " " + name);
     // show updated inventory
     console.log('currentInventory:', inventory);
 }; // end addItem
@@ -51,7 +53,7 @@ var searchInventoryByName = function() {
   var results = [];
   var name = document.getElementById("nameIn").value;
   for (var i = 0; i < inventory.length; i++) {
-    if (inventory[i].name === name) {
+    if (inventory[i].name.toLowerCase() === name.toLowerCase()) {
       results.push(inventory[i]);
     }
   }
