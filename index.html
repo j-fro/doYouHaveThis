@@ -4,12 +4,16 @@
 <head>
     <meta charset="utf-8">
     <title>Inventory Example</title>
+    <link rel="stylesheet" href="styles.css">
     <script src="inventory.js" charset="utf-8"></script>
 </head>
 
 <body>
+    <h1>Obscura</h1>
+    <h3>Antiques & Oddities</h3>
     <h2>Search Inventory</h2>
     <input type="text" id="nameIn" placeholder="Search by Name" />
+    <br>
     <select id="colorIn">
       <option value=""></option>
       <option value="red">red</option>
@@ -20,17 +24,20 @@
       <option value="blue">blue</option>
       <option value="purple">purple</option>
     </select>
+    <br>
     <select id="sizeIn">
       <option value=""></option>
       <option value="small">small</option>
       <option value="medium">medium</option>
       <option value="large">large</option>
     </select>
+    <br>
     <button onclick="showSearchResults()">Search Inventory</button>
     <ul id="resultsList">
     </ul>
     <h2>Add New Items</h2>
     <input type="text" id="nameInNew" placeholder="Name" />
+    <br>
     <select id="colorInNew">
       <option value="red">red</option>
       <option value="orange">orange</option>
@@ -40,11 +47,13 @@
       <option value="blue">blue</option>
       <option value="purple">purple</option>
     </select>
+    <br>
     <select id="sizeInNew">
       <option value="small">small</option>
       <option value="medium">medium</option>
       <option value="large">large</option>
     </select>
+    <br>
     <button onclick="addUserItem()">Create New Item</button>
 </body>
 
